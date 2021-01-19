@@ -3,25 +3,27 @@ var bodyParser = require('body-parser');
 const {PythonShell} =require('python-shell'); 
 const tf = require('@tensorflow/tfjs');
 var app = express();
-app.use(bodyParser());
-app.get('/one_health',async function(req,res){
+app.use(express.json());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+app.post('/one_health',async function(req,res){
     var json = req.body;
     console.log("model started")
     model = await tf.loadLayersModel("https://raw.githubusercontent.com/kshitij-arora/HealthBuddy/main/resources/model/model.json");
     console.log("model loaded")
     var male, age, fever, runnynose, sorethroat, tiredness, DryCough, difficultyinbreathing, LossOfSmellOrTaste, Diarrhea, DirectContactWithSomeone, output;
-    age = json["age"]
-    male = json["male"]
-    fever = json["fever"]
-    runnynose = json["runnynose"]
-    sorethroat = json["sorethroat"]
-    tiredness = json["tiredness"]
-    DryCough = json["drycough"]
-    difficultyinbreathing = json["difficultyinbreathing"]
-    LossOfSmellOrTaste = json["lossofsmellortaste"]
-    Diarrhea = json["diarrhea"]
-    DirectContactWithSomeone = json["directcontactwithsomeone"]
-    NasalCongestion = json["nasalcongestion"]
+    age = json["Age"]
+    male = json["Male"]
+    fever = json["Fever"]
+    runnynose = json["Runny nose"]
+    sorethroat = json["Sore Throat"]
+    tiredness = json["Tiredness"]
+    DryCough = json["Dry-cough"]
+    difficultyinbreathing = json["Difficulty in breathing"]
+    LossOfSmellOrTaste = json["Loss of Smell or Taste"]
+    Diarrhea = json["Diarrhea"]
+    DirectContactWithSomeone = json["Direct contact with someone infected"]
+    NasalCongestion = json["Nasal Congestion"]
     if (age<18)
         age=0
     else if (age<30)
@@ -59,7 +61,7 @@ app.get('/one_health',async function(req,res){
     console.log(outputData)
     res.send({"value": Number(outputData[1])+extra})
 })
-app.get('/additional_symptom',function(req,res){
+app.post('/additional_symptom',function(req,res){
     var json = req.body;
 
     options = { 
@@ -77,7 +79,7 @@ app.get('/additional_symptom',function(req,res){
           res.send(result)
     });
 })
-app.get('/result',function(req,res){
+app.post('/result',function(req,res){
     var json = req.body;
     var symptom = json["symptom"]
     var days = json["days"]
@@ -86,10 +88,24 @@ app.get('/result',function(req,res){
     argv.push("responses");
     argv.push(symptom);
     argv.push(days);
-    argv.push(data.length);
-    for(i=0;i<data.length;i++)
+    if(!data.includes(","))
     {
-        argv.push(data[i])
+        argv.push(1);
+        argv.push(data.substring(1,data.length-1))
+    }
+    else
+    {
+        data = data.split(",");
+        argv.push(data.length);
+        for(i=0;i<data.length;i++)
+        {
+        if(i==0)
+        argv.push(data[i].substring(1,data[i].length))
+        else if(i==data.length-1)
+        argv.push(data[i].substring(1,data[i].length-1))
+        else
+        argv.push(data[i].substring(1,data[i].length))
+        }
     }
     let options = { 
         mode: 'text', 

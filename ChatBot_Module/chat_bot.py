@@ -279,7 +279,8 @@ def tree_to_code(tree, feature_names):
                 additional_symptoms.append(listitem)           
             if sys.argv[1]=='additional_symptoms':
                 try:
-                    print('ok',' ',len(additional_symptoms),' ', additional_symptoms)
+                    for  i,j in enumerate(additional_symptoms):
+                        print(j)
                     sys.stdout.flush()
                 except:
                     print(0,' inv')
