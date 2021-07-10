@@ -1,3 +1,5 @@
+const python_path = "C:/Users/kshit/AppData/Local/Programs/Python/Python37/python";
+
 var express = require('express');
 var bodyParser = require('body-parser');
 const {PythonShell} =require('python-shell'); 
@@ -66,9 +68,9 @@ app.post('/additional_symptom',function(req,res){
 
     options = { 
         mode: 'text', 
-        pythonPath: 'C://Users/hp/AppData/Local/Programs/Python/Python38/python',
+        pythonPath: python_path,
         pythonOptions: ['-u'], 
-        scriptPath: 'C://Users/hp/Desktop/Health_Buddy_Web/ChatBot_Module', 
+        scriptPath: 'ChatBot Module', 
         args: ['additional_symptoms',json["symptom"],json["days"]]
     }; 
       
@@ -109,9 +111,9 @@ app.post('/result',function(req,res){
     }
     let options = { 
         mode: 'text', 
-        pythonPath: 'C://Users/hp/AppData/Local/Programs/Python/Python38/python',
+        pythonPath: python_path,
         pythonOptions: ['-u'], 
-        scriptPath: 'C://Users/hp/Desktop/Health_Buddy_Web/ChatBot_Module', 
+        scriptPath: 'ChatBot Module', 
         args: argv
     }; 
     PythonShell.run('chat_bot.py', options, function (err, result){ 

@@ -3,20 +3,19 @@ import os
 
 def reset():
 
-    if os.path.exists('C://Users/hp/Desktop/Health_Buddy_Web/ChatBot_Module/dynamic_data/num_days.txt'):
-        os.remove('C://Users/hp/Desktop/Health_Buddy_Web/ChatBot_Module/dynamic_data/num_days.txt')
-    if os.path.exists('C://Users/hp/Desktop/Health_Buddy_Web/ChatBot_Module/dynamic_data/main_symptom.txt'):
-        os.remove('C://Users/hp/Desktop/Health_Buddy_Web/ChatBot_Module/dynamic_data/main_symptom.txt')
-    if os.path.exists('C://Users/hp/Desktop/Health_Buddy_Web/ChatBot_Module/dynamic_data/predicted_symptoms.txt'):
-        os.remove('C://Users/hp/Desktop/Health_Buddy_Web/ChatBot_Module/dynamic_data/predicted_symptoms.txt')
-    if os.path.exists('C://Users/hp/Desktop/Health_Buddy_Web/ChatBot_Module/dynamic_data/additional_symptoms.txt'):
-        os.remove('C://Users/hp/Desktop/Health_Buddy_Web/ChatBot_Module/dynamic_data/additional_symptoms.txt')
+    if os.path.exists('resources/Dynamic/num_days.txt'):
+        os.remove('resources/Dynamic/num_days.txt')
+    if os.path.exists('resources/Dynamic/main_symptom.txt'):
+        os.remove('resources/Dynamic/main_symptom.txt')
+    if os.path.exists('resources/Dynamic/predicted_symptoms.txt'):
+        os.remove('resources/Dynamic/predicted_symptoms.txt')
+    if os.path.exists('resources/Dynamic/additional_symptoms.txt'):
+        os.remove('resources/Dynamic/additional_symptoms.txt')
 
     quit()
 
 if sys.argv[1]=='reset':
     reset()
-    print('ok',' ', 'reset')
 
 import pandas as pd
 import pyttsx3
@@ -32,8 +31,8 @@ import warnings
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 
-training = pd.read_csv('C://Users/hp/Desktop/Karan/Node.js/projectnew/ChatBot_Module/Training.csv')
-testing= pd.read_csv('C://Users/hp/Desktop/Karan/Node.js/projectnew/ChatBot_Module/Testing.csv')
+training = pd.read_csv('resources/Static/Training.csv')
+testing= pd.read_csv('resources/Static/Testing.csv')
 cols= training.columns
 cols= cols[:-1]
 x = training[cols]
@@ -103,7 +102,7 @@ def calc_condition(exp,days):
 
 def getDescription():
     global description_list
-    with open('C://Users/hp/Desktop/Karan/Node.js/projectnew/ChatBot_Module/symptom_Description.csv') as csv_file:
+    with open('resources/Static/symptom_Description.csv') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
         line_count = 0
         for row in csv_reader:
@@ -115,7 +114,7 @@ def getDescription():
 
 def getSeverityDict():
     global severityDictionary
-    with open('C://Users/hp/Desktop/Karan/Node.js/projectnew/ChatBot_Module/symptom_severity.csv') as csv_file:
+    with open('resources/Static/symptom_severity.csv') as csv_file:
 
         csv_reader = csv.reader(csv_file, delimiter=',')
         line_count = 0
@@ -129,7 +128,7 @@ def getSeverityDict():
 
 def getprecautionDict():
     global precautionDictionary
-    with open('C://Users/hp/Desktop/Karan/Node.js/projectnew/ChatBot_Module/symptom_precaution.csv') as csv_file:
+    with open('resources/Static/symptom_precaution.csv') as csv_file:
 
         csv_reader = csv.reader(csv_file, delimiter=',')
         line_count = 0
@@ -155,7 +154,7 @@ def check_pattern(dis_list,inp):
         return ptr,item
 
 def sec_predict(symptoms_exp):
-    df = pd.read_csv('C://Users/hp/Desktop/Karan/Node.js/projectnew/ChatBot_Module/Training.csv')
+    df = pd.read_csv('resources/Static/Training.csv')
     X = df.iloc[:, :-1]
     y = df['prognosis']
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=20)
@@ -222,7 +221,7 @@ def tree_to_code(tree, feature_names):
             sys.stdout.flush()
         
         if disease_input!='':
-            text_file = open("C://Users/hp/Desktop/Karan/Node.js/projectnew/ChatBot_Module/dynamic_data/main_symptom.txt", "w+")
+            text_file = open("resources/Dynamic/main_symptom.txt", "w+")
             text_file.write(disease_input)
             text_file.close()
         quit()
@@ -233,7 +232,7 @@ def tree_to_code(tree, feature_names):
         try:
             num_days=int(sys.argv[2])
             print('ok',' ',int(sys.argv[2]))
-            text_file = open("C://Users/hp/Desktop/Karan/Node.js/projectnew/ChatBot_Module/dynamic_data/num_days.txt", "w+")
+            text_file = open("resources/Dynamic/num_days.txt", "w+")
             text_file.write(sys.argv[2])
             text_file.close()
         except:
