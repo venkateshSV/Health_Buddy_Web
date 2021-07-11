@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+  <!-- SLIDE-MENU -->
+
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+    <div class="row justify-content-center">
+      <div class='col-auto'>
+        <a id='login'>Login</a>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      
+      <div class="col-6" style="text-align: center;">
+        <a href="#">
+          Patient
+          <br>
+          <i class="fas fa-user"></i>
+        </a>
+      </div>
+      <div class="col-6" style="text-align: center;">
+        <a href="#">
+          Doctor
+          <br>
+          <i class="fas fa-user-md"></i>
+        </a>
+      </div>
+      <br>
+    
+    </div>
+
+    <br>
+
+    <div class="row justify-content-center">
+
+        <a class="padding-0">New User?</a>
+        <a href='#' class="padding-0"> Sign-up</a>
+
+    </div>
+
+    <br><br><br><br><br><br>
+
+    <div class="row justify-content-center">
+      <img style='width: 50%; height: auto;' src="resources/just_logo.gif" alt="description of gif" /> 
+    </div>
+
+    <div  class="row justify-content-center">
+      <a> HealthBuddy</a>
+    </div>
+
+  </div>
+  <!-- MAIN -->
+
+  <div id="main">
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar sticky-top navbar-light">
+      <a class="navbar-brand" href="#">
+        <img class='logo' src="resources/logo3.png" alt="">
+      </a>
+      <a onclick="openNav()">
+        <i class="fas fa-user-circle"></i>
+      </a>
+    </nav>
+
+    <!-- CAROUSEL -->
+
+    <div id="carouselControls" class="carousel slide" data-ride="carousel" data-interval="2000">
+      <div class="carousel-inner">
+
+        <div class="carousel-item no-pad active">
+          <img class="cust" src="resources/2.png" alt="First slide">
+        </div>
+
+        <div class="carousel-item no-pad">
+          <img class="cust" src="resources/3.png" alt="Second slide">
+        </div>
+
+        <div class="carousel-item no-pad">
+          <img class="cust width-100" src="resources/1.png" alt="Third slide">
+        </div>
+        
+      </div>
+    </div>
+
+    <!-- DOCTOR SAYS -->
+
+    <div class="static-bg">
+
+      <div id='moving-doc' class="moving-doc">
+
+        <div id="test-btn" class="col-6 justify-content-center test-btn">
+
+          <div id='btn-div'>
+            <a href='predict.html' id='id-btn'>GIVE NOW</a>
+          </div>
+
+          </div>
+
+      </div>
+
+    </div>
+
+    <!-- WEBSITE UNDER CONSTRUCTION -->
+
+      <img class="img-fluid" src="resources/underconstruction.png" style="width: 100%;">
+    
+    <!-- ######## -->
+  </div>
+
+  <script src="https://kit.fontawesome.com/7bf5669798.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tensorflow/1.0.1/tf.js"> </script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@1.0.0"> </script>
+  <script src="scripts/script.js"></script>
+
+</body>
+
+
+</html>

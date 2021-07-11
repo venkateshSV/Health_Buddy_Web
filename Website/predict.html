@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto&display=swap" rel="stylesheet">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>COVID DETECTOR</title>
+    </head>
+
+    <body style="height: 100vh; background-color: #0075FF;">
+
+        <!-- SLIDE-MENU -->
+
+        <div id="mySidenav" class="sidenav">
+
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+             
+            <div class="row justify-content-center">
+
+              <div class='col-auto'>
+                <a id='login'>Login</a>
+              </div>
+
+            </div>
+        
+            <div class="row justify-content-center">
+            
+              <div class="col-6" style="text-align: center;">
+
+                <a href="#">
+                  Patient
+                  <br>
+                  <i class="fas fa-user"></i>
+                </a>
+
+              </div>
+
+              <div class="col-6" style="text-align: center;">
+
+                <a href="#">
+                  Doctor
+                  <br>
+                  <i class="fas fa-user-md"></i>
+                </a>
+
+              </div>
+          
+            </div>
+        
+            <br>
+        
+            <div class="row justify-content-center">
+            
+                <a class="padding-0">New User?</a>
+                <a href='#' class="padding-0"> Sign-up</a>
+            
+            </div>
+        
+            <br><br><br><br><br><br>
+        
+            <div class="row justify-content-center">
+              <img style='width: 50%; height: auto;' src="resources/just_logo.gif" alt="description of gif" /> 
+            </div>
+        
+            <div  class="row justify-content-center">
+              <a>HealthBuddy</a>
+            </div>
+        
+        </div>
+
+        <!-- MAIN -->
+
+        <div id="main" style="height: 100vh;">
+        
+        <!-- NAVBAR -->
+        
+            <nav class="navbar sticky-top navbar-light">
+              <a class="navbar-brand" href="#">
+                <img class='logo' src="resources/logo3.png" alt="">
+              </a>
+              <a onclick="openNav()">
+                <i class="fas fa-user-circle"></i>
+              </a>
+            </nav>
+
+        <!-- FORM -->
+
+            <form id='form' onsubmit="return false;">
+
+                <div id='name-div' class='symptom name active-form'>
+                    <a>Name</a>
+                    <br><br>
+                    <input type="text" id="name" required>
+                </div>
+
+                <div id='age-div' class='symptom age'>
+                    <a>Age</a>
+                    <br><br>
+                    <input type="number" id="age" required>
+                </div>
+
+                <div id='gender-div' class="symptom gender">
+                    <a>Gender</a>
+                    <br><br>
+                    <div class="row justify-content-centre" style="height: 5vh;">
+
+                        <div id='gender-male-options' class='options col-5' onclick="Choose('gender-male', 2, 0)">
+                            <input class= 'checkbox' id="gender-male" type="radio" name="gender-choice">
+                            <label class='symptom-label' for="gender-male">Male</label>
+                        </div>
+                        <div class="col-1">
+                        </div>
+                        <div id='gender-female-options' class="options col-5" onclick="Choose('gender-female', 2, 1)">
+                            <input class= 'checkbox' id="gender-female" type="radio" name="gender-choice">
+                            <label class='symptom-label' for="gender-female">Female</label>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div id='fever-div' class="symptom fever">
+                    <a>Were you having fever in the past few days?</a>
+                    <br><br>
+                    <div class="row justify-content-centre" style="height: 5vh;">
+                        
+                        <div id='fever-yes-options' class='options col-5' onclick="Choose('fever-yes', 3, 0)">
+                            <input class='checkbox' id="fever-yes" type="radio" name="fever-choice">
+                            <label class='symptom-label' for="fever-yes">Yes</label>
+                        </div>
+                        <div class="col-1">
+                        </div>
+                        <div id='fever-no-options' class="options col-5" onclick="Choose('fever-no', 3, 1)">
+                            <input class='checkbox' id="fever-no" type="radio" name="fever-choice">
+                            <label class='symptom-label' for="fever-no">No</label>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id='tiredness-div' class="symptom tiredness">
+                    <a>Were you having tiredness in the past few days?</a>
+                    <br><br>
+                    <div class="row justify-content-centre" style="height: 5vh;">
+                        
+                        <div id='tiredness-yes-options' class='options col-5' onclick="Choose('tiredness-yes', 4, 0)">
+                            <input class='checkbox' id="tiredness-yes" type="radio" name="tiredness-choice">
+                            <label class='symptom-label' for="tiredness-yes">Yes</label>
+                        </div>
+                        <div class="col-1">
+                        </div>
+                        <div id='tiredness-no-options' class="options col-5" onclick="Choose('tiredness-no', 4, 1)">
+                            <input class='checkbox' id="tiredness-no" type="radio" name="tiredness-choice">
+                            <label class='symptom-label' for="tiredness-no">No</label>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id='dry-cough-div' class="symptom dry-cough">
+                    <a>Were you having dry-cough in the past few days?</a>
+                    <br><br>
+                    <div class="row justify-content-centre" style="height: 5vh;">
+                        
+                        <div id='dry-cough-yes-options' class='options col-5'' onclick="Choose('dry-cough-yes', 5, 0)">
+                            <input class='checkbox' id="dry-cough-yes" type="radio" name="dry-cough-choice">
+                            <label class='symptom-label' for="dry-cough-yes">Yes</label>
+                        </div>
+                        <div class="col-1">
+                        </div>
+                        <div id='dry-cough-no-options' class="options col-5" onclick="Choose('dry-cough-no', 5, 1)">
+                            <input class='checkbox' id="dry-cough-no" type="radio" name="dry-cough-choice">
+                            <label class='symptom-label' for="dry-cough-no">No</label>
+                        </div>
+
+                    </div>
+                </div>
+
+                
+
+                <div id='difficulty-in-breathing-div' class="symptom difficulty-in-breathing">
+                    <a>Were you having difficulty-in-breathing in the past few days?</a>
+                    <br><br>
+                    <div class="row justify-content-centre" style="height: 5vh;">
+                        
+                        <div id='difficulty-in-breathing-yes-options' class='options col-5' onclick="Choose('difficulty-in-breathing-yes', 6, 0)">
+                            <input class='checkbox' id="difficulty-in-breathing-yes" type="radio" name="difficulty-in-breathing-choice">
+                            <label class='symptom-label' for="difficulty-in-breathing-yes">Yes</label>
+                        </div>
+                        <div class="col-1">
+                        </div>
+                        <div id='difficulty-in-breathing-no-options' class="options col-5" onclick="Choose('difficulty-in-breathing-no', 6, 1)">
+                            <input class='checkbox' id="difficulty-in-breathing-no" type="radio" name="difficulty-in-breathing-choice">
+                            <label class='symptom-label' for="difficulty-in-breathing-no">No</label>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id='sore-throat-div' class="symptom sore-throat">
+                    <a>Were you having sore-throat in the past few days?</a>
+                    <br><br>
+                    <div class="row justify-content-centre" style="height: 5vh;">
+                        
+                        <div id='sore-throat-yes-options' class='options col-5' onclick="Choose('sore-throat-yes', 7, 0)">
+                            <input class='checkbox' id="sore-throat-yes" type="radio" name="sore-throat-choice">
+                            <label class='symptom-label' for="sore-throat-yes">Yes</label>
+                        </div>
+                        <div class="col-1">
+                        </div>
+                        <div id='sore-throat-no-options' class="options col-5" onclick="Choose('sore-throat-no', 7, 1)">
+                            <input class='checkbox' id="sore-throat-no" type="radio" name="sore-throat-choice">
+                            <label class='symptom-label' for="sore-throat-no">No</label>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id='loss-of-smell-or-taste-div' class="symptom loss-of-smell-or-taste">
+                    <a>Were you having loss-of-smell-or-taste in the past few days?</a>
+                    <br><br>
+                    <div class="row justify-content-centre" style="height: 5vh;">
+                        
+                        <div id='loss-of-smell-or-taste-yes-options' class='options col-5' onclick="Choose('loss-of-smell-or-taste-yes', 8, 0)">
+                            <input class='checkbox' id="loss-of-smell-or-taste-yes" type="radio" name="loss-of-smell-or-taste-choice">
+                            <label class='symptom-label' for="loss-of-smell-or-taste-yes">Yes</label>
+                        </div>
+                        <div class="col-1">
+                        </div>
+                        <div id='loss-of-smell-or-taste-no-options' class="options col-5" onclick="Choose('loss-of-smell-or-taste-no', 8, 1)">
+                            <input class='checkbox' id="loss-of-smell-or-taste-no" type="radio" name="loss-of-smell-or-taste-choice">
+                            <label class='symptom-label' for="loss-of-smell-or-taste-no">No</label>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id='nasal-congestion-div' class="symptom nasal-congestion">
+                    <a>Were you having nasal-congestion in the past few days?</a>
+                    <br><br>
+                    <div class="row justify-content-centre" style="height: 5vh;">
+                        
+                        <div id='nasal-congestion-yes-options' class='options col-5' onclick="Choose('nasal-congestion-yes', 9, 0)">
+                            <input class='checkbox' id="nasal-congestion-yes" type="radio" name="nasal-congestion-choice">
+                            <label class='symptom-label' for="nasal-congestion-yes">Yes</label>
+                        </div> 
+                        <div class="col-1">
+                        </div>
+                        <div id='nasal-congestion-no-options' class="options col-5" onclick="Choose('nasal-congestion-no', 9, 1)">
+                            <input class='checkbox' id="nasal-congestion-no" type="radio" name="nasal-congestion-choice">
+                            <label class='symptom-label' for="nasal-congestion-no">No</label>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id='runny-nose-div' class="symptom runny-nose">
+                    <a>Were you having runny-nose in the past few days?</a>
+                    <br><br>
+                    <div class="row justify-content-centre" style="height: 5vh;">
+                        
+                        <div id='runny-nose-yes-options' class='options col-5' onclick="Choose('runny-nose-yes', 10, 0)">
+                            <input class='checkbox' id="runny-nose-yes" type="radio" name="runny-nose-choice">
+                            <label class='symptom-label' for="runny-nose-yes">Yes</label>
+                        </div>
+                        <div class="col-1">
+                        </div>
+                        <div id='runny-nose-no-options' class="options col-5" onclick="Choose('runny-nose-no', 10, 1)">
+                            <input class='checkbox' id="runny-nose-no" type="radio" name="runny-nose-choice">
+                            <label class='symptom-label' for="runny-nose-no">No</label>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id='diarrhea-div' class="symptom diarrhea">
+                    <a>Were you having diarrhea in the past few days?</a>
+                    <br><br>
+                    <div class="row justify-content-centre" style="height: 5vh;">
+                        
+                        <div id='diarrhea-yes-options' class='options col-5' onclick="Choose('diarrhea-yes', 11, 0)">
+                            <input class='checkbox' id="diarrhea-yes" type="radio" name="diarrhea-choice">
+                            <label class='symptom-label' for="diarrhea-yes">Yes</label>
+                        </div>
+                        <div class="col-1">
+                        </div>
+                        <div id='diarrhea-no-options' class="options col-5" onclick="Choose('diarrhea-no', 11, 1)">
+                            <input class='checkbox' id="diarrhea-no" type="radio" name="diarrhea-choice">
+                            <label class='symptom-label' for="diarrhea-no">No</label>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id='direct-contact-with-someone-infected-div' class="symptom direct-contact-with-someone-infected">
+                    <a>Were you having direct-contact-with-someone-infected in the past few days?</a>
+                    <br><br>
+                    <div class="row justify-content-centre" style="height: 5vh;">
+                        
+                        <div id='direct-contact-with-someone-infected-yes-options' class='options col-5' onclick="Choose('direct-contact-with-someone-infected-yes', 12, 0)">
+                            <input class='checkbox' id="direct-contact-with-someone-infected-yes" type="radio" name="direct-contact-with-someone-infected-choice">
+                            <label class='symptom-label' for="direct-contact-with-someone-infected-yes">Yes</label>
+                        </div>
+                        <div class="col-1">
+                        </div>
+                        <div id='direct-contact-with-someone-infected-no-options' class="options col-5" onclick="Choose('direct-contact-with-someone-infected-no', 12, 1)">
+                            <input class='checkbox' id="direct-contact-with-someone-infected-no" type="radio" name="direct-contact-with-someone-infected-choice">
+                            <label class='symptom-label' for="direct-contact-with-someone-infected-no">No</label>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row toggler justify-content-end">
+
+                    <div id='previous-div' class="col-6 previous">
+                        <button id='previous' type="button" name='previous' onclick="Previous()">
+                            <i class="fas fa-chevron-left"></i> PREVIOUS
+                        </button>
+                    </div>
+
+                    <div id='next-div' class="col-6 next">
+                        <button id='next' type="button" name='next' onclick="Next()">
+                            NEXT <i class="fas fa-chevron-right"></i>
+                        </button>
+                        <button id='submit' type="button" name='submit' onclick="make_prediction()">
+                            SUBMIT
+                        </button>
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tensorflow/1.0.1/tf.js"> </script>
+        <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@1.0.0"> </script>
+        <script src="https://kit.fontawesome.com/7bf5669798.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tensorflow/1.0.1/tf.js"> </script>
+        <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@1.0.0"> </script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script><script src="scripts/script.js"></script>
+
+    </body>
+</html>

@@ -1,0 +1,372 @@
+.navbar {
+    /* overflow: hidden;
+    position: fixed;
+    top: 0; */
+    height: 5vw;
+    /* padding-top: 0.5vw;
+    padding-left: 2vw;
+    width: 100%; */
+    /* justify-content: left; */
+    /* overflow: hidden; */
+    background-color: #333;
+    padding-top: 0vw;
+    /* position: fixed; */
+    /* top: 0;
+    width: 100%; */
+    z-index: 9;
+}
+
+.logo {
+    height: 4.5vw;
+    width: auto;
+}
+
+.fa-user-circle {
+    color: whitesmoke;
+    font-size: 2vw;
+    padding-right: 1vw;
+    cursor: pointer;
+}
+
+#carouselControls {
+    padding-top: 1.5vh;
+    background-color: #FF5D22;
+}
+
+.carousel-item {
+    padding-top: 2vh;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 90vw;
+    left: auto;
+    right: auto;
+    height: 30vw;
+}
+
+.no-pad {
+    padding-top: 0;
+}
+
+.cust {
+    margin-right: 0;
+    width: 80%;
+    margin-left: 10%;
+}
+
+.width-100 {
+    width: 100%;
+    margin-left: 0;
+    padding-top: 6vw;
+}
+
+.sidenav .padding-0 {
+    padding: 0;
+}
+
+.sidenav .inline {
+    display: inline;
+}
+/* ############################################# */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 10; /* Stay on top */
+    top: 0; /* Stay at the top */
+    right: 0;
+    background-color: white; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 3vw; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  }
+
+#login {
+    font-family: blogger-bold;
+    font-size: 2.5vw;
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 0;
+    text-decoration: none;
+    font-family: blogger;
+    font-size: 1.5vw;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a i {
+    font-size: 2vw;
+}
+  
+  /* When you mouse over the navigation links, change their color */
+  .sidenav a:hover {
+    color: #FF5D22;
+  }
+  
+  /* Position and style the close button (top right corner) */
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 2.5vw;
+    font-size: 3.6vw;
+    margin-left: 5vw;
+  }
+  
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+  /* @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  } */
+#main {
+    transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+}
+
+.translucent {
+    opacity: 0.5;
+}
+
+@font-face {
+    font-family: blogger-bold;
+    src: url('../resources/fonts/blogger/Blogger_Sans-Bold.otf');
+}
+@font-face {
+    font-family: blogger;
+    src: url('../resources/fonts/blogger/Blogger_Sans-Medium.otf');
+}
+@font-face {
+    font-family: blogger-light-italic;
+    src: url('../resources/fonts/blogger/Blogger_Sans-Light_Italic.otf');
+}
+
+.static-bg {
+    margin-top: 5vh;
+    width: 100%;
+    position: relative;
+    height: 35vh;
+    min-height: 75vh;
+}
+
+.moving-doc {
+    /* transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out; */
+    max-width: 100%;
+    min-height: 45vh;
+    position: absolute;
+    top: 0;
+    left: -100%;
+    bottom: 0;
+    right: auto;
+    width:100%;
+    background-image: url('../resources/doc1c.png');
+    background-size: cover;
+    background-position: center;
+}
+
+#test-btn {
+    font-family: blogger-bold;
+    transition: opacity 1s ease-in-out;
+    text-align: center;
+    top: 50%;
+    height: 30vh;
+}
+
+.test-btn a:hover {
+    text-decoration: none;
+  }
+
+.test-btn {
+    opacity: 1;
+    height: auto;
+}
+
+.invisible {
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+#btn-div {
+    background-color: #FF5D22;
+    border-radius: 10px;
+    padding-top: 0.65vh;
+    margin: auto;
+    width: 10vw;
+    height: 6vh;
+    transition: all .3s ease-in-out;
+ }
+
+#btn-div:hover {
+    background-color: #0075FF;
+ }
+
+#id-btn {
+    transition: all .3s ease-in-out;
+    padding: 0;
+    border: none;
+    font-size: 3vh;
+    border-radius: 10px;
+    text-decoration-color: #0075FF;
+    background: none;
+}
+
+#id-btn:hover {
+    color: white;
+    text-decoration: none;
+}
+
+#form {
+    width: 45%;
+    height: 25vh;
+    margin: auto;
+    margin-top: 30vh;
+    border-radius: 6px;
+}
+
+.symptom {
+    display: none;
+    height: 75%;
+    background-color: white;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    padding-top: 4vh;
+    padding-left: 3vw;
+}
+
+.toggler {
+    height: 25%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: #FF5D22;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+.next, .previous{
+    height: 100%;
+    top: 30%;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.previous {
+    display: none;
+    border-bottom-left-radius: 6px;
+    text-align: left;
+}
+
+.next {
+    border-bottom-right-radius: 6px;
+    text-align: right;
+}
+
+#next, #previous, #submit {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1vw;
+    color: white;
+    border: none;
+    background: none;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    cursor: pointer;
+}
+
+#submit {
+    display: none;
+}
+
+.active-form {
+    display: block;
+}
+
+.name input, .age input{
+    width:39vw;
+    height: 5vh;
+    border: 1px solid #818181;
+    border-radius: 4px;
+}
+
+.symptom a{
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5vw;
+}
+
+.options {
+    transition: all 0.1s ease-in-out;
+    border: 1px solid #0075FF;
+    border-radius: 5px;
+    text-align: center;
+    justify-content: center;
+    color: #0075FF;
+    height: 100%;
+    cursor: pointer;
+}
+
+.symptom-label {
+    font-family: 'Roboto', sans-serif;
+    height: 80%;
+    font-size: 1.5vw;
+    margin: 0;
+    margin-top: 0.5vh;
+    padding-left: 0.2vw;
+}
+
+.checkbox {
+    transform: scale(0);
+}
+
+.toggler button:focus {
+    border: none;
+    outline:none;
+}
+
+.shaker {
+    animation: shake 0.62s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-2px, 0, 0);
+  }
+  
+  20%, 40%, 60%, 80% {
+    transform: translate3d(4px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-8px, 0, 0);
+  }
+}
+
+.options:hover {
+    background-color: #0075FF;
+    border: none;
+    color: white;
+}
+
+.option-selected {
+    background-color: #0075FF;
+    border: none;
+    color: white;
+}
+
+.blinking{
+    animation:blinkingText 0.6s infinite;
+}
+
+@keyframes blinkingText{
+    0%{     color: transparent;    }
+    49%{    color: transparent; }
+    60%{    color: white; }
+    99%{    color: white;  }
+    100%{   color: transparent;    }
+}
